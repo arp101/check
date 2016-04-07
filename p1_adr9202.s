@@ -39,7 +39,7 @@ _pr2:
     SWI 0                   @ execute syscall
     MOV PC, LR              @ return
 
-result:
+_result:
     MOV R7, LR              @ store LR since printf call overwrites
     LDR R0, =result         @ R0 contains formatted string address
     MOV R1, R1              @ R1 contains printf argument (redundant line)
