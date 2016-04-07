@@ -58,8 +58,9 @@ _comp:
     MOV PC, LR
 
 _sum:
+    MOV R9, LR
     ADD R0, R1, R3          
-    MOV PC, LR              
+    MOV PC, R9            
 
 _difference:
     SUB R0, R1, R3          
