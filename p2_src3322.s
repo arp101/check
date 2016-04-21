@@ -73,4 +73,4 @@ _printf:
 
 format_str:		.asciz		"%d"	
 
-printf_str: 		.asciz		"There are %d partitions of %d using integers upto %d.\n"
+printf_str: 		.asciz		"There are %d partitions of %d using integers upto %d\n"
