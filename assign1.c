@@ -14,6 +14,7 @@ int main(int argc, char * argv[]) {
 	pid_t child;
 	DIR * d;
 	struct dirent * de;
+	struct stat buf;
 	int i;
 	char s[2048], cmd[2048];
 	time_t t;
@@ -94,7 +95,7 @@ int main(int argc, char * argv[]) {
 			else
 				printf("\t\t%d.\t%s\n", i, dlist[i]);
 		}
-		printf( "\nOperations:\tE Edit\n\t\tR Run\n\t\tC Change Directory\n" );
+		printf( "\nOperations:\tE Edit\n\t\tR Run\n\t\tC Change Directory\n\t\I Inf0\n" );
 		/* print Prev and Next if available */
 		if (pageindex > 1)
 			printf("\t\tP Prev Page\n");
@@ -190,6 +191,24 @@ int main(int argc, char * argv[]) {
 			case 'n': if (pageindex*pagesize < fsize || pageindex*pagesize < dsize )
 					pageindex++;
 				break;
+			case 'I':
+                        case 'i': printf("File name?:");
+                          scanf("%s", s);
+                          stat(s,&buf);
+                          printf("st_mode = %o\n",buf.st_mode);
+                          printf("File Size: \t\t%lld bytes\n",buf.st_size);
+                          printf("File Permissions: \t");
+                          printf( (S_ISDIR(buf.st_mode)) ? "d" : "-");
+                          printf( (buf.st_mode & S_IRUSR) ? "r" : "-");
+                          printf( (buf.st_mode & S_IWUSR) ? "w" : "-");
+                          printf( (buf.st_mode & S_IXUSR) ? "x" : "-");
+                          printf( (buf.st_mode & S_IRGRP) ? "r" : "-");
+                          printf( (buf.st_mode & S_IWGRP) ? "w" : "-");
+                          printf( (buf.st_mode & S_IXGRP) ? "x" : "-");
+                          printf( (buf.st_mode & S_IROTH) ? "r" : "-");
+                          printf( (buf.st_mode & S_IWOTH) ? "w" : "-");
+                          printf( (buf.st_mode & S_IXOTH) ? "x" : "-");
+                          break;
 			default:break;
 		}
 	}
