@@ -13,6 +13,7 @@
 #include <time.h>
 #include <errno.h>
 #include <curses.h>
+#include <ncurses.h>
 #include <sys/stat.h>
 int main(int argc, char * argv[]) {
 	pid_t child;
