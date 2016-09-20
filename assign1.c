@@ -2,6 +2,7 @@
  * Assignment 1 : Shell script to edit, run, change dir
  * Arpit Raorane
  * CSE 3320 
+ * Reference and S: Stackoverflow and github rep
  */
 #include <sys/types.h>
 #include <stdio.h>
