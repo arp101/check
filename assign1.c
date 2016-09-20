@@ -99,7 +99,7 @@ int main(int argc, char * argv[]) {
 			else
 				printf("\t\t%d.\t%s\n", i, dlist[i]);
 		}
-		printf( "\nOperations:\tE Edit\n\t\tR Run\n\t\tC Change Directory\n\t\I Inf0\n" );
+		printf( "\nOperations:\tE Edit\n\t\tR Run\n\t\tC Change Directory\n\t\tI Info\n" );
 		/* print Prev and Next if available */
 		if (pageindex > 1)
 			printf("\t\tP Prev Page\n");
