@@ -1,3 +1,8 @@
+/*
+ * Assignment 1 : Shell script to edit, run, change dir
+ * Arpit Raorane
+ * CSE 3320 
+ */
 #include <sys/types.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -39,9 +44,11 @@ int main(int argc, char * argv[]) {
 
 	while (1) {
 		getcwd(s, 2048);
-		printf( "\nCurrent Working Dir: %s \n", s);
+	
 		t = time( NULL );
-		printf( "It is now: %s\n", ctime( &t ));
+		printf( "Time: %s\n", ctime( &t ));
+		
+		printf( "\nCurrent Working Dir: %s \n", s);
 		
 		d = opendir( "." );
 		/* handle current working dir exception */
@@ -101,12 +108,12 @@ int main(int argc, char * argv[]) {
 			case 'Q':
 			case 'q': return 0; /* quit */
 			case 'E':
-			case 'e': printf( "Edit what?(enter a file number between 0 to %d, default 0):", fsize - 1 );
+			case 'e': printf( "Edit what?(enter a number between 0 to %d):", fsize - 1 );
 				/* input an available file number */
 				num = 0;
 				scanf( "%d", &num );
 				while (num < 0 || num > fsize - 1){
-					printf("%d is a wrong number, reenter one number (0 - %d) please:", num, fsize - 1);
+					printf("%d is a wrong number(0 - %d) please:", num, fsize - 1);
 					setbuf(stdin, NULL);
 					scanf( "%d", &num );
 				}
@@ -118,12 +125,12 @@ int main(int argc, char * argv[]) {
 				system( cmd );
 				break;
 			case 'R':
-			case 'r': printf( "Run what?(enter a file number 0 - %d, default 0, and followed by parameters, press enter to end):", fsize - 1 );
+			case 'r': printf( "Run what?(enter number 0 - %d, default 0, and followed by ):", fsize - 1 );
 				/* input an available file number */
 				num = 0;
 				scanf( "%d", &num );
 				while (num < 0 || num > fsize - 1){
-					printf("%d is a wrong number, reenter one number (0 - %d) please:", num, fsize - 1);
+					printf("%d is a wrong number, reenter one number (0 - %d) :", num, fsize - 1);
 					setbuf(stdin, NULL);
 					scanf( "%d", &num );
 				}
@@ -152,12 +159,12 @@ int main(int argc, char * argv[]) {
 				getchar();
 				break;
 			case 'C':
-			case 'c': printf( "Change To?(enter a dir number between 0 to %d, default 0):", dsize - 1 );
+			case 'c': printf( "Change To?(enter a dir number between 0 to %d):", dsize - 1 );
 				/* input an available dir number */
 				num = 0;
 				scanf( "%d", &num );
 				while (num < 0 || num > dsize - 1){
-					printf("%d is a wrong number, reenter one number (0 - %d) please:", num, dsize - 1);
+					printf("%d is a wrong number, reenter one number (0 - %d):", num, dsize - 1);
 					setbuf(stdin, NULL);
 					scanf( "%d", &num );
 				}
