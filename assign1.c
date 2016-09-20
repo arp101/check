@@ -5,11 +5,15 @@
  * Reference and S: Stackoverflow and github rep
  */
 #include <sys/types.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <dirent.h>
 #include <string.h>
 #include <time.h>
+#include <errno.h>
+#include <curses.h>
+#include <sys/stat.h>
 int main(int argc, char * argv[]) {
 	pid_t child;
 	DIR * d;
