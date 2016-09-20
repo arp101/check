@@ -212,6 +212,7 @@ int main(int argc, char * argv[]) {
                           printf( (buf.st_mode & S_IROTH) ? "r" : "-");
                           printf( (buf.st_mode & S_IWOTH) ? "w" : "-");
                           printf( (buf.st_mode & S_IXOTH) ? "x" : "-");
+                          getchar();
                           break;
 			default:break;
 		}
